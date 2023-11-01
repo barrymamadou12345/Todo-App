@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="./langages/TODOLIST.css">
+  <script src="https://kit.fontawesome.com/7019415cd8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <title></title>
+  <!-- ++++++++++ AOS ANIMATION +++++++++ -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- ++++++++++ AOS ANIMATION +++++++++ -->
+</head>
+
+<body>
+
+  <div class="container mt-4 pt-4">
+    <h1 class=" fs-2 text-success fw-bold text-center pb-2"> ToDo App</h1>
+    <div class="conty">
+      <div class="bano">
+        <input type="text" id="inputTache" class=" input1" placeholder="Ajouter une Tache">
+        <div class="input-group-append">
+          <button id="ajoutBtn" class="btAjout" type="button" onclick="ajoutTache()">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <button class="editing" id="editing"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-4">
+      <h1 class="fs-4 text-center">Taches</h1>
+    </div>
+    <ul id="ListTache">
+      <!-- Les tâches qui seront ajoutées -->
+    </ul>
+
+  </div>
+
+
+
+
+
+
+  <!-- 
+    <h1>To-Do List</h1>
+    <div class="container">
+        <input type="text" id="task" placeholder="Ajouter une tâche...">
+        <button onclick="addTask()">Ajouter</button>
+        <ul id="taskList"></ul>
+        <button onclick="clearCompleted()">Effacer les tâches terminées</button>
+    </div> -->
+
+
+
+
+
+
+
+  <!--===========================================SCRIPTES============================================================================-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+
+  <script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+  <script src="./langages/TODOLIST.js"></script>
+  <!-- ++++++++++ AOS ANIMATION +++++++++ -->
+  <script>
+    AOS.init();
+  </script>
+  <!-- ++++++++++ AOS ANIMATION +++++++++ -->
+</body>
+
+</html>
