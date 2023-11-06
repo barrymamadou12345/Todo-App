@@ -39,9 +39,11 @@ function affichage() {
   taches.forEach((tache, index) => {
     const listItem = document.createElement("li");
     ListTache.appendChild(listItem);
+
     listItem.classList.add("lii");
     const tacheText = document.createTextNode(tache);
     listItem.appendChild(tacheText);
+
     let date = document.createElement("div");
     date.className = "espace";
     date.textContent = `${jour}/${mois}/${année}`;
@@ -50,15 +52,19 @@ function affichage() {
 
     let actions = document.createElement("div");
     actions.className = "actions";
+    
     const editBtn = document.createElement("button");
     editBtn.className = "modif";
     editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square fs-2"></i>';
     actions.appendChild(editBtn);
+
     editBtn.addEventListener("click", function () {
       ajoutBtn.classList.add('vide')
       modifBtn.classList.remove('vide')
+
       tacheModifier = document.querySelector('#inputTache');
       tacheModifier.value = taches[index]
+
       modifBtn.addEventListener('click', function () {
         taches[index] = tacheModifier.value;
         localStorage.setItem('acces', JSON.stringify(taches));
@@ -74,6 +80,7 @@ function affichage() {
     deletBtn.innerHTML = '<i class="fa-solid fa-trash-can fs-2"></i>';
     actions.appendChild(deletBtn);
     listItem.appendChild(actions);
+
     deletBtn.addEventListener("click", function () {
       listItem.remove(index);
       taches.splice(index, 1);
