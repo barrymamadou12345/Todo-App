@@ -1,156 +1,299 @@
+.container {
+  width: 73%;
+  border: 5px solid rgba(113, 188, 27, 0.724);
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 
-.container{
-    width: 73%;
-    border: 5px solid rgba(113, 188, 27, 0.724);
-    border-radius: 10px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+.modal-content .input1 {
+  width: 40%;
+  width: 80%;
+  height: 50px;
+  border: 2px solid #2ee1c3ee;
+  border-radius: 10px;
+  background-color: #009484;
+  color: #f1e3e3;
+  font-size: 20px ;
+  font-weight: bold;
+  padding-left: 10px;
+  margin:10px auto;
+}
+.modal-content .input1::placeholder{
+  color: #f1e3e3;
+}
+.modal-content .laDate{
+  width: 80%;
+  height: 50px;
+  border: 2px solid rgb(8, 236, 198);
+  border-radius: 10px;
+  background-color: #009484;
+  color: #f1e3e3;
+  font-size: 20px;
+  padding: 0px 20px;
+  margin:5px auto;
+
+}
+.modal-content .laDate:focus{
+  border: 2px solid rgb(31, 236, 8);
+  outline: none;
+}
+.debut {
+  width: 50%;
+  height: 50px;
+  padding-left: 10px;
+  margin: 5px 0;
+}
+.boutono{
+  width: 80%;
+  margin:10px auto;
+}
+
+
+
+/*/////////////// MODAL / DEBUT ///////////////////*/
+
+
+/* Le background du modal*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(4, 52, 52, 0.884);
+}
+
+/* Mcontenu modal*/
+.modal-content {
+  background-color: #c66c6c;
+  margin: 10% auto;
+  padding: 60px 20px;
+  border: 1px solid #888;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+/*/////////////// MODAL / FIN ///////////////////*/
+
+
+
+
+.bano {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0px 17px;
+  background-color: rgba(113, 188, 27, 0.18);
+}
+
+.input1:focus {
+  outline: none;
+}
+
+.input1 {
+  border: none;
+  background-color: rgba(113, 188, 27, 0);
+}
+
+.input1::placeholder {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.conty {
+  width: 95%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.augma,
+.editing {
+  width: 70%;
+  height: 50px;
+  padding: 5px;
+  border: 2px solid rgb(8, 236, 198);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  justify-content: center;
+  margin-left: 30px;
+}
+.close {
+  width: 30%;
+  height: 50px;
+  padding: 5px;
+  border: 2px solid rgb(8, 236, 198);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  justify-content: center;
+  color: rgb(0, 255, 251);
+  background-color: #bd2506ee;
+}
+.close:hover,
+.close:focus {
+  color: rgb(255, 0, 0);
+  background-color: #08cadc;
+}
+.augma{
+  background-color: #04665c;
+  color: white;
+}
+.btAjout{
+  width: 50px;
+  height: 50px;
+  padding: 7px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.btAjout {
+  color: rgb(8, 6, 41);
+  background-color: rgba(37, 126, 111, 0.479);
+}
+
+.editing {
+  color: rgb(13, 0, 255);
+  background-color: rgb(236, 142, 10);
+}
+
+.btAjout:hover,
+.editing:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 10px 2px green;
+  color: rgb(4, 166, 4);
+}
+.augma:hover {
+  background-color: rgb(8, 139, 12);
+}
+.espace {
+  font-weight: 400;
+  color: rgba(18, 17, 17, 0.575);
+  font-size: 25px;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 10px;
+}
+
+.lii {
+  width: 100%;
+  height: 190px;
+  list-style: none;
+  margin: 10px auto;
+  padding: 0px 10px;
+  border: 4px solid rgba(113, 188, 27, 0.557);
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 30px;
+  color: rgb(3, 79, 102);
+  background-color: rgba(113, 188, 27, 0.18);
+  margin: 10px -17px;
+}
+
+.suprim {
+  border: none;
+  width: 40px;
+  height: 42px;
+  padding: 7px;
+  background-color: rgba(255, 0, 0, 0.009);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  margin-left: 30px;
+}
+
+.suprim:hover {
+  color: red;
+}
+
+.modif:hover {
+  color: rgb(11, 7, 255);
+}
+
+.vide {
+  display: none;
+}
+
+.modif {
+  border: none;
+  width: 40px;
+  height: 42px;
+  padding: 7px;
+  background-color: rgba(68, 67, 68, 0);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.actions {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/****==================================================***/
+@media screen and (max-width: 1300px) {
+  .modal-content{
+    width: 55%;
   }
-  .input1{
+}
+@media screen and (max-width: 1080px) {
+  .container {
+    width: 90%;
+  }
+  .modal-content{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 802px) {
+  .modal-content{
     width: 70%;
-    height: 50px;
-    border: 1px solid gray;
-    padding-left: 10px;
-    margin: 5px 0;
   }
-  .bano{
-    display: flex;
-    align-items: center;
-    margin: auto;
-    justify-content: space-between;
-    width: 100%;
-    border-radius: 10px;
-    padding: 0px 17px;
-    background-color: rgba(113, 188, 27, 0.18) ;
-  }
-  .input1:focus{
-    outline: none;
-  }
+}
 
-  .input1{
-    border: none;
-    background-color: rgba(113, 188, 27, 0) ;
-  }
-  .input1::placeholder{
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .conty{
-    width: 95%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    justify-content: space-between;
-  }
-  .btAjout,.editing{
-    width: 50px;
-    height: 50px;
-    padding: 7px;
-    border: none;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    justify-content: center;
-    margin: 10px 0px;
-  }
-  .btAjout{
-    color: rgb(2, 1, 19);
-    background-color: rgba(37, 126, 111, 0.479);
-  }
-  .editing{
-    color: rgb(13, 0, 255);
-    background-color: rgb(236, 142, 10);
-  }
-  
-  .btAjout:hover , .editing:hover{
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 2px 10px 2px green;
-    color: rgb(4, 166, 4);
-  }
-  .espace{
-    font-weight: 400;
-    color: rgba(18, 17, 17, 0.575);
-    font-size: 25px;
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 10px;
-  }
-  .lii{
+@media screen and (max-width: 992px) {
+  .container {
     width: 100%;
-    height: 190px;
-    list-style: none;
-    margin: 10px auto;
-    padding:  0px 10px;
-    border: 4px solid  rgba(113, 188, 27, 0.557);
-    border-radius: 7px;
-    font-weight: bold;
-    font-size: 30px;
-    color: rgb(3, 79, 102);
-    background-color: rgba(113, 188, 27, 0.18) ;
-    margin:10px -17px;
   }
-  .suprim{
-    border: none;
-    width: 40px;
-    height: 42px;
-    padding: 7px;
-    background-color: rgba(255, 0, 0, 0.009) ;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(0, 0, 0);
-    font-weight: bold ;
-    margin-left: 30px;
-  }
-  .suprim:hover{
-    color: red;
-  }
-  .modif:hover{
-    color: rgb(11, 7, 255);
-  }
-  .vide{
-    display: none;
-  }
-  .modif{
-    border: none;
-    width: 40px;
-    height: 42px;
-    padding: 7px;
-    background-color: rgba(68, 67, 68, 0);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(0, 0, 0);
-    font-weight: bold ;
-  }
+}
 
-  .actions{
-    margin-top: 30px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media screen and (max-width: 767px) {
+  .container {
+    width: 96%;
   }
+  .modal-content{
+    width: 90%;
+  }
+}
 
-  
-  /****==================================================***/
-  
-  @media screen and (max-width: 1080px) {
-    .container{
-      width: 90%;
-    }
-  }
-  @media screen and (max-width: 992px) {
-    .container{
-      width: 100%;
-    }
-  }
-  @media screen and (max-width: 767px) {
-    .container{
-      width: 96%;
-    }
-  }
-  
+

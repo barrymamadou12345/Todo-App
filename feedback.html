@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="./langages/TODOLIST.css">
+  <link rel="stylesheet" href="./langages/feedbacks.css">
   <script src="https://kit.fontawesome.com/7019415cd8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <title></title>
@@ -18,47 +18,22 @@
 </head>
 
 
+
+
+
+
+
 <body>
-
-
-
-  <!-- MODAL DEBUT -->
-
-  <!-- Boutton ouvrire le modal -->
-  <!-- <button id="myBtn">Open Modal</button> -->
-
-  <!-- le Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Contenu du modal -->
-    <div class="modal-content">
-
-      <input type="text" id="inputTache" class="input1" placeholder="Ajouter une Tache">
-      <input type="date" id="date1" class="laDate">
-
-      <div class="d-flex boutono">
-        <button class="close" id="fermer">Fermer</button>
-        <button id="ajoutBtn" class="augma" onclick="ajoutTache()">Ajouter</button>
-        <button class="editing" id="editing">Modifier</i></button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- MODAL Fin -->
-
-
   <div class="container mt-4 pt-4">
     <h1 class=" fs-2 text-success fw-bold text-center pb-2"> ToDo App</h1>
     <div class="conty">
       <div class="bano">
-        <div type="text" class="debut">
-          <p class="fs-4 pt-1">Ajouter une Tache</p>
-        </div>
+        <input type="text" id="inputTache" class=" input1" placeholder="Ajouter une Tache">
         <div class="input-group-append">
-          <button id="myBtn" class="btAjout">
+          <button id="ajoutBtn" class="btAjout" type="button" onclick="ajoutTache()">
             <i class="fa-solid fa-plus"></i>
           </button>
+          <button class="editing" id="editing"><i class="fa-solid fa-plus"></i></button>
         </div>
       </div>
     </div>
@@ -85,8 +60,8 @@
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
   </script>
-  <script src="./langages/TODOLIST.js"></script>
-  <!-- <script src="./langages/feedbacks.js"></script> -->
+  <!-- <script src="./langages/TODOLIST.js"></script> -->
+  <script src="./langages/feedbacks.js"></script>
   <!-- ++++++++++ AOS ANIMATION +++++++++ -->
   <script>
     AOS.init();

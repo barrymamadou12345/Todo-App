@@ -1,100 +1,152 @@
 
+
 let tachesLocalStorage = JSON.parse(localStorage.getItem('acces'));
 let taches = tachesLocalStorage || [];
-// Fonction pour ajouter une tâche
+
 let inputTache;
 let tacheModifier;
+let idCounter = 0; // Compteur d'ID pour chaque tâche
 
+// MODAL DEBUT ///////////////////////////
+let modal = document.getElementById("myModal");
+let btn = document.getElementById("myBtn");
+let span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function () {
+  modal.style.display = "block";
+}
+span.onclick = function () {
+  modal.style.display = "none";
+}
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+// MODAL FIN /////////////////////////
+
+// Fonction pour ajouter une tâche
 function ajoutTache() {
   inputTache = document.getElementById("inputTache");
   let tacheText = inputTache.value;
   if (tacheText !== "") {
-    taches.unshift(tacheText);
+    const tache = {
+      id: idCounter += 1,
+      nom: tacheText,
+      date: date1.value,
+    };
+    taches.unshift(tache);
     inputTache.value = "";
+    date1.value = "";
     affichage();
+    localStorage.setItem('acces', JSON.stringify(taches));
   }
+  modal.style.display = "none";
 }
-// la date 
-let date1 = new Date();
-let jour = date1.getDate();
-let mois = date1.getMonth();
-let année = date1.getFullYear();
-mois += 1
-
-if (jour < 10) {
-  jour = '0' + jour;
-};
-if (mois < 10) {
-  mois = '0' + mois;
-};
 
 let ajoutBtn = document.querySelector('#ajoutBtn');
 let modifBtn = document.querySelector('#editing');
+let date1 = document.querySelector('#date1');
 modifBtn.classList.add('vide')
+
+let id;
+let listItem;
+let tacheText;
+let date;
+let actions;
+let editBtn;
+let deletBtn;
+let idSupr;
+let indxSupr;
 
 function affichage() {
   const ListTache = document.getElementById("ListTache");
   ListTache.innerHTML = "";
 
   taches.forEach((tache, index) => {
-    const listItem = document.createElement("li");
+    listItem = document.createElement("li");
     ListTache.appendChild(listItem);
 
+    id = document.createElement('div');
+    id.textContent = tache.id;
+    listItem.appendChild(id);
+
     listItem.classList.add("lii");
-    const tacheText = document.createTextNode(tache);
+    tacheText = document.createTextNode(tache.nom);
     listItem.appendChild(tacheText);
 
-    let date = document.createElement("div");
+    date = document.createElement("div");
     date.className = "espace";
-    date.textContent = `${jour}/${mois}/${année}`;
-    localStorage.setItem('acces', JSON.stringify(taches));
+    date.textContent = tache.date;
     listItem.appendChild(date);
 
-    let actions = document.createElement("div");
+    // ccccccccccccccc
+
+    actions = document.createElement("div");
     actions.className = "actions";
-    
-    const editBtn = document.createElement("button");
+
+    editBtn = document.createElement("button");
     editBtn.className = "modif";
     editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square fs-2"></i>';
     actions.appendChild(editBtn);
 
     editBtn.addEventListener("click", function () {
+      modal.style.display = "block";
       ajoutBtn.classList.add('vide')
-      modifBtn.classList.remove('vide')
-
+      modifBtn.classList.remove('vide');
       tacheModifier = document.querySelector('#inputTache');
-      tacheModifier.value = taches[index]
+      tacheModifier.value = tache.nom; // Pré-remplir le nom de la tâche dans le formulaire
 
       modifBtn.addEventListener('click', function () {
-        taches[index] = tacheModifier.value;
-        localStorage.setItem('acces', JSON.stringify(taches));
+        tache.nom = tacheModifier.value;
+        modal.style.display = "none";
         modifBtn.classList.add('vide')
         ajoutBtn.classList.remove('vide')
-        location.reload()
+        tacheModifier.value = "";
+        localStorage.setItem('acces', JSON.stringify(taches));
         affichage();
-      })
+      });
     });
 
-    const deletBtn = document.createElement("button");
+    deletBtn = document.createElement("button");
     deletBtn.className = "suprim";
     deletBtn.innerHTML = '<i class="fa-solid fa-trash-can fs-2"></i>';
     actions.appendChild(deletBtn);
     listItem.appendChild(actions);
 
+    // Supprimer avec L'id 
     deletBtn.addEventListener("click", function () {
-      listItem.remove(index);
-      taches.splice(index, 1);
-      localStorage.setItem('acces', JSON.stringify(taches));
+      idSupr = tache.id; // Récupérer l'ID de la tâche à supprimer
+      indxSupr = taches.findIndex(t => t.id === idSupr); // Trouver l'index correspondant!
+
+      if (indxSupr !== -1) {
+        listItem.remove(); // Supprimer l'élément HTML
+        taches.splice(indxSupr, 1); // Supprimer l'élément du tableau
+        localStorage.setItem('acces', JSON.stringify(taches));
+        affichage();
+      }
     });
+
     localStorage.setItem('acces', JSON.stringify(taches));
+    /* // Supprimer avec L'index
+      deletBtn.addEventListener("click", function () {
+        listItem.remove(index);
+        taches.splice(index, 1);
+        localStorage.setItem('acces', JSON.stringify(taches));
+      });
+    */
   });
+  localStorage.setItem('acces', JSON.stringify(taches));
 }
+
 affichage();
 
 taches.forEach(() => {
   affichage();
   localStorage.setItem('acces', JSON.stringify(taches));
-})
+});
+
+
 
 
 
