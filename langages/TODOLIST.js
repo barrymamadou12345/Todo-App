@@ -58,10 +58,12 @@ let editBtn;
 let deletBtn;
 let idSupr;
 let indxSupr;
+let archiveBtn;
+let terminBtn;
 
 function affichage() {
   const ListTache = document.getElementById("ListTache");
-  ListTache.innerHTML = "";
+  ListTache.textContent = "";
 
   taches.forEach((tache, index) => {
     listItem = document.createElement("li");
@@ -69,6 +71,7 @@ function affichage() {
 
     id = document.createElement('div');
     id.textContent = tache.id;
+    id.className = 'vide';
     listItem.appendChild(id);
 
     listItem.classList.add("lii");
@@ -80,11 +83,34 @@ function affichage() {
     date.textContent = tache.date;
     listItem.appendChild(date);
 
-    // ccccccccccccccc
-
     actions = document.createElement("div");
     actions.className = "actions";
 
+    ///////////  Bouton Archiver //////////////
+    archiveBtn = document.createElement("button");
+    archiveBtn.className = "archiv";
+    archiveBtn.innerHTML = '<i class="fa-solid fa-box-archive"></i>';
+    actions.appendChild(archiveBtn);
+
+    archiveBtn.addEventListener("click", function () {
+      tache.nom = '';
+      localStorage.setItem('acces', JSON.stringify(taches));
+      affichage();
+    });
+
+    ///////////  Bouton Terminer //////////////
+    terminBtn = document.createElement("button");
+    terminBtn.className = "termine";
+    terminBtn.innerHTML = '<i class="fa-solid fa-square-check"></i>';
+    actions.appendChild(terminBtn);
+
+    terminBtn.addEventListener("click", function () {
+      tache.nom = 'Felicitation vous avez terminé la Tache !';
+      localStorage.setItem('acces', JSON.stringify(taches));
+      affichage();
+    });
+
+    ///////////  Bouton Modifier //////////////
     editBtn = document.createElement("button");
     editBtn.className = "modif";
     editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square fs-2"></i>';
@@ -105,9 +131,11 @@ function affichage() {
         tacheModifier.value = "";
         localStorage.setItem('acces', JSON.stringify(taches));
         affichage();
+        location.reload();
       });
     });
 
+    ///////////  Bouton Supprimer //////////////
     deletBtn = document.createElement("button");
     deletBtn.className = "suprim";
     deletBtn.innerHTML = '<i class="fa-solid fa-trash-can fs-2"></i>';
@@ -117,7 +145,7 @@ function affichage() {
     // Supprimer avec L'id 
     deletBtn.addEventListener("click", function () {
       idSupr = tache.id; // Récupérer l'ID de la tâche à supprimer
-      indxSupr = taches.findIndex(t => t.id === idSupr); // Trouver l'index correspondant!
+      indxSupr = taches.findIndex(ta => ta.id === idSupr); // Trouver l'index correspondant!
 
       if (indxSupr !== -1) {
         listItem.remove(); // Supprimer l'élément HTML
@@ -126,8 +154,6 @@ function affichage() {
         affichage();
       }
     });
-
-    localStorage.setItem('acces', JSON.stringify(taches));
     /* // Supprimer avec L'index
       deletBtn.addEventListener("click", function () {
         listItem.remove(index);
