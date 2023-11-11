@@ -105,7 +105,7 @@ function affichage() {
     actions.appendChild(terminBtn);
 
     terminBtn.addEventListener("click", function () {
-      tache.nom = 'Felicitation vous avez terminé la Tache !';
+      tache.nom = 'Tache Terminé ! Félicitation ';
       localStorage.setItem('acces', JSON.stringify(taches));
       affichage();
     });
