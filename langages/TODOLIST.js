@@ -34,6 +34,8 @@ function ajoutTache() {
       id: idCounter += 1,
       nom: tacheText,
       date: date1.value,
+      archive: false,
+      termine: false,
     };
     taches.unshift(tache);
     inputTache.value = "";
@@ -60,6 +62,7 @@ let idSupr;
 let indxSupr;
 let archiveBtn;
 let terminBtn;
+let fini ;
 
 function affichage() {
   const ListTache = document.getElementById("ListTache");
@@ -67,6 +70,7 @@ function affichage() {
 
   taches.forEach((tache, index) => {
     listItem = document.createElement("li");
+    listItem.style.color = ' rgb(3, 79, 102)';
     ListTache.appendChild(listItem);
 
     id = document.createElement('div');
@@ -94,6 +98,7 @@ function affichage() {
 
     archiveBtn.addEventListener("click", function () {
       tache.nom = '';
+      tache.archive = true ;
       localStorage.setItem('acces', JSON.stringify(taches));
       affichage();
     });
@@ -105,7 +110,8 @@ function affichage() {
     actions.appendChild(terminBtn);
 
     terminBtn.addEventListener("click", function () {
-      tache.nom = 'Tache Terminé ! Félicitation ';
+      tache.nom += ' ----- Est Terminé !';
+      tache.termine = true ;
       localStorage.setItem('acces', JSON.stringify(taches));
       affichage();
     });
