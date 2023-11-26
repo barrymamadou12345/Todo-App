@@ -49,8 +49,7 @@ function ajoutTache() {
 let ajoutBtn = document.querySelector('#ajoutBtn');
 let modifBtn = document.querySelector('#editing');
 let date1 = document.querySelector('#date1');
-let listArchive = document.querySelector('#listArchive');
-modifBtn.classList.add('vide');
+modifBtn.classList.add('vide')
 
 let id;
 let listItem;
@@ -63,7 +62,7 @@ let idSupr;
 let indxSupr;
 let archiveBtn;
 let terminBtn;
-let fini;
+let fini ;
 
 function affichage() {
   const ListTache = document.getElementById("ListTache");
@@ -96,34 +95,33 @@ function affichage() {
     archiveBtn.className = "archiv";
     archiveBtn.innerHTML = '<i class="fa-solid fa-box-archive"></i>';
     actions.appendChild(archiveBtn);
-    archiveBtn.style.display = "none";
 
     archiveBtn.addEventListener("click", function () {
-      tache.archive = true;
+      tache.nom = '';
+      tache.archive = true ;
       localStorage.setItem('acces', JSON.stringify(taches));
       affichage();
     });
-    
+
     ///////////  Bouton Terminer //////////////
     terminBtn = document.createElement("button");
     terminBtn.className = "termine";
     terminBtn.innerHTML = '<i class="fa-solid fa-square-check"></i>';
     actions.appendChild(terminBtn);
-    
+
     terminBtn.addEventListener("click", function () {
-      tache.nom = tache.nom + ' ----- Est Terminé !';
-      tache.termine = true;
-      affichage();
+      tache.nom += ' ----- Est Terminé !';
+      tache.termine = true ;
       localStorage.setItem('acces', JSON.stringify(taches));
+      affichage();
     });
-    
-    
+
     ///////////  Bouton Modifier //////////////
     editBtn = document.createElement("button");
     editBtn.className = "modif";
     editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square fs-2"></i>';
     actions.appendChild(editBtn);
-    
+
     editBtn.addEventListener("click", function () {
       modal.style.display = "block";
       ajoutBtn.classList.add('vide')
@@ -142,25 +140,14 @@ function affichage() {
         location.reload();
       });
     });
-    
-    //Gestion de l'Affichage du bouton terminer , Archivé et Modifier .
-    if (tache.termine) {
-      terminBtn.disabled = true;
-      terminBtn.style.opacity = '0.5'
-      editBtn.disabled = true;
-      editBtn.style.opacity = '0.5'
-      // Affichage du bouton archivé
-      archiveBtn.style.display = 'flex'
-      localStorage.setItem('acces', JSON.stringify(taches));
-    }
-    
+
     ///////////  Bouton Supprimer //////////////
     deletBtn = document.createElement("button");
     deletBtn.className = "suprim";
     deletBtn.innerHTML = '<i class="fa-solid fa-trash-can fs-2"></i>';
     actions.appendChild(deletBtn);
     listItem.appendChild(actions);
-    
+
     // Supprimer avec L'id 
     deletBtn.addEventListener("click", function () {
       idSupr = tache.id; // Récupérer l'ID de la tâche à supprimer
@@ -174,11 +161,11 @@ function affichage() {
       }
     });
     /* // Supprimer avec L'index
-    deletBtn.addEventListener("click", function () {
-      listItem.remove(index);
-      taches.splice(index, 1);
-      localStorage.setItem('acces', JSON.stringify(taches));
-    });
+      deletBtn.addEventListener("click", function () {
+        listItem.remove(index);
+        taches.splice(index, 1);
+        localStorage.setItem('acces', JSON.stringify(taches));
+      });
     */
   });
   localStorage.setItem('acces', JSON.stringify(taches));

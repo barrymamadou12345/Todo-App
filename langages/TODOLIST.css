@@ -6,12 +6,6 @@
   padding-top: 10px;
 }
 
-.barrer{
-  background-color: #009484;
-  text-decoration: line-through;
-}
-
-
 .modal-content .input1 {
   width: 40%;
   width: 80%;
@@ -258,7 +252,17 @@
   margin-left: 30px;
 
 }
+#archi{
+  width: 100%;
+  height: auto;
+  background-color: #04665c59;
+  padding: 10px;
+}
+.disp{
+  display: none;
+}
 .archiv {
+  margin-right: 25%;
   font-size: 33px;
   border: none;
   width: 40px;
